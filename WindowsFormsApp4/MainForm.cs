@@ -193,6 +193,26 @@ namespace WindowsFormsApp4
 
             dgvcbc3.FlatStyle = FlatStyle.Flat;
         }
+
+        private void buttonABC_Click(object sender, EventArgs e)
+        {
+            dgv.Focus();
+            BeginInvoke((MethodInvoker)delegate 
+            {
+                SendKeys.SendWait("a\tb\tc\t");
+                SendKeys.Flush();
+            });
+        }
+
+        private void buttonCDE_Click(object sender, EventArgs e)
+        {
+            dgv.Focus();
+            BeginInvoke((MethodInvoker)delegate
+            {
+                SendKeys.SendWait("c\td\te\t");
+                SendKeys.Flush();
+            });
+        }
     }
 
 #if false
