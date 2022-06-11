@@ -23,22 +23,10 @@ namespace WindowsFormsApp4
             dgv.CurrentCellChanged += onCurrentCellChanged;
             dgv.CurrentCellDirtyStateChanged += onCurrentCellDirtyStateChanged;
         }
+
         protected override void OnHandleCreated(EventArgs e)
         {
             base.OnHandleCreated(e);
-        }
-
-        public void SendKeyPlusTab(string keys)
-        {
-            dgv.Focus();
-            BeginInvoke((MethodInvoker)delegate 
-            {
-                foreach (var key in keys)
-                {
-                    SendKeys.SendWait(key.ToString());
-                    SendKeys.Flush();
-                }
-            });
         }
 
         private void onCurrentCellDirtyStateChanged(object sender, EventArgs e)
@@ -197,24 +185,28 @@ namespace WindowsFormsApp4
             dgvcbc3.FlatStyle = FlatStyle.Flat;
         }
 
+        public void SendKeyPlusTab(string keys)
+        {
+            if (!dgv.Focused)
+            {
+                dgv.Focus();
+                Task.Delay(100).Wait();
+            }
+            foreach (var key in keys)
+            {
+                SendKeys.SendWait($"{ key}\t");
+            }
+        }
+
         private void buttonABC_Click(object sender, EventArgs e)
         {
-            dgv.Focus();
-            BeginInvoke((MethodInvoker)delegate 
-            {
-                SendKeys.SendWait("a\tb\tc\t");
-                SendKeys.Flush();
-            });
+            SendKeyPlusTab("abc");
         }
 
         private void buttonCDE_Click(object sender, EventArgs e)
         {
-            dgv.Focus();
-            BeginInvoke((MethodInvoker)delegate
-            {
-                SendKeys.SendWait("c\td\te\t");
-                SendKeys.Flush();
-            });
+            buttonCDE.Enabled = false;
+            SendKeyPlusTab("def");
         }
     }
 

@@ -48,6 +48,8 @@
             // btnWorkaround
             // 
             this.btnWorkaround.Appearance = System.Windows.Forms.Appearance.Button;
+            this.btnWorkaround.Checked = true;
+            this.btnWorkaround.CheckState = System.Windows.Forms.CheckState.Checked;
             this.btnWorkaround.Location = new System.Drawing.Point(12, 403);
             this.btnWorkaround.Name = "btnWorkaround";
             this.btnWorkaround.Size = new System.Drawing.Size(146, 40);
