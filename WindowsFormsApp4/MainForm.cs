@@ -111,7 +111,82 @@ namespace WindowsFormsApp4
         {
             Debug.WriteLine($"CBEdit losing focus with text='{_cbEdit.Text}'");
         }
+        DataTable dtString1;
+        DataTable dtString2;
+        DataTable dtString3;
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // create three combobox columns and put them side-by-side:
+            // first column:
+            DataGridViewComboBoxColumn dgvcbc1 = new DataGridViewComboBoxColumn();
+            dgvcbc1.DataPropertyName = "String1";
+            dgvcbc1.Name = "String1";
 
+            dtString1 = new DataTable("String1Options");
+            dtString1.Columns.Add("String1Long", typeof(string));
+
+            dtString1.Rows.Add("apple");
+            dtString1.Rows.Add("bob");
+            dtString1.Rows.Add("clobber");
+            dtString1.Rows.Add("dilbert");
+            dtString1.Rows.Add("ether");
+
+            dgv.Columns.Insert(0, dgvcbc1);
+
+            dgvcbc1.DisplayMember = dtString1.Columns[0].ColumnName;
+            dgvcbc1.ValueMember = dtString1.Columns[0].ColumnName;
+            dgvcbc1.DataSource = dtString1;
+
+            dgvcbc1.FlatStyle = FlatStyle.Flat;
+
+            // create the second column:
+            DataGridViewComboBoxColumn dgvcbc2 = new DataGridViewComboBoxColumn();
+            dgvcbc2.DataPropertyName = "String2";
+            dgvcbc2.Name = "String2";
+
+            dtString2 = new DataTable("String2Options");
+            dtString2.Columns.Add("String2Long", typeof(string));
+
+            dtString2.Rows.Add("apple");
+            dtString2.Rows.Add("bob");
+            dtString2.Rows.Add("clobber");
+            dtString2.Rows.Add("dilbert");
+            dtString2.Rows.Add("ether");
+
+            dgv.Columns.Insert(1, dgvcbc2);
+
+            dgvcbc2.DisplayMember = dtString2.Columns[0].ColumnName;
+            dgvcbc2.ValueMember = dtString2.Columns[0].ColumnName;
+            dgvcbc2.DataSource = dtString2;
+
+            dgvcbc2.FlatStyle = FlatStyle.Flat;
+
+            // create the third column:
+            DataGridViewComboBoxColumn dgvcbc3 = new DataGridViewComboBoxColumn();
+            dgvcbc3.DataPropertyName = "String3";
+            dgvcbc3.Name = "String3";
+
+            dtString3 = new DataTable("String3Options");
+            dtString3.Columns.Add("String3Long", typeof(string));
+
+            dtString3.Rows.Add("apple");
+            dtString3.Rows.Add("bob");
+            dtString3.Rows.Add("clobber");
+            dtString3.Rows.Add("dilbert");
+            dtString3.Rows.Add("ether");
+
+            dgv.Columns.Insert(2, dgvcbc3);
+
+            dgvcbc3.DisplayMember = dtString3.Columns[0].ColumnName;
+            dgvcbc3.ValueMember = dtString3.Columns[0].ColumnName;
+            dgvcbc3.DataSource = dtString3;
+
+            dgvcbc3.FlatStyle = FlatStyle.Flat;
+        }
+
+#if false
+        // During debugging I reworded this to make sure I
+        // understood what was supposed to be happening here.
         string[] values { get; } = new string[]
         {
             "apple",
@@ -149,6 +224,7 @@ namespace WindowsFormsApp4
                 dgv.Columns.Add(c);
             }
         }
+#endif
 
         SemaphoreSlim _criticalSection = new SemaphoreSlim(1, 1);
         public void SendKeyPlusTab(string keys)
