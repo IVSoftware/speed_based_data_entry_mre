@@ -68,7 +68,7 @@ namespace WindowsFormsApp4
         {
             if(e.Control is DataGridViewComboBoxEditingControl cbEdit)
             {
-                CBEdit = cbEdit; 
+                CBEdit = cbEdit;
             }
         }
         DataGridViewComboBoxEditingControl _cbEdit = null;
@@ -111,19 +111,15 @@ namespace WindowsFormsApp4
             Debug.WriteLine($"CBEdit losing focus with text='{_cbEdit.Text}'");
         }
 
-        DataTable dtString1;
-        DataTable dtString2;
-        DataTable dtString3;
-
         private void Form1_Load(object sender, EventArgs e)
         {
             // create three combobox columns and put them side-by-side:
             // first column:
-            DataGridViewComboBoxColumn dgvcbc1 = new DataGridViewComboBoxColumn();
-            dgvcbc1.DataPropertyName = "String1";
-            dgvcbc1.Name = "String1";
+            var c = new DataGridViewComboBoxColumn();
+            c.DataPropertyName = "String1";
+            c.Name = "String1";
 
-            dtString1 = new DataTable("String1Options");
+            var dtString1 = new DataTable("String1Options");
             dtString1.Columns.Add("String1Long", typeof(string));
 
             dtString1.Rows.Add("apple");
@@ -132,20 +128,20 @@ namespace WindowsFormsApp4
             dtString1.Rows.Add("dilbert");
             dtString1.Rows.Add("ether");
 
-            dgv.Columns.Insert(0, dgvcbc1);
+            dgv.Columns.Insert(0, c);
 
-            dgvcbc1.DisplayMember = dtString1.Columns[0].ColumnName;
-            dgvcbc1.ValueMember = dtString1.Columns[0].ColumnName;
-            dgvcbc1.DataSource = dtString1;
+            c.DisplayMember = dtString1.Columns[0].ColumnName;
+            c.ValueMember = dtString1.Columns[0].ColumnName;
+            c.DataSource = dtString1;
 
-            dgvcbc1.FlatStyle = FlatStyle.Flat;
+            c.FlatStyle = FlatStyle.Flat;
 
             // create the second column:
-            DataGridViewComboBoxColumn dgvcbc2 = new DataGridViewComboBoxColumn();
-            dgvcbc2.DataPropertyName = "String2";
-            dgvcbc2.Name = "String2";
+            c = new DataGridViewComboBoxColumn();
+            c.DataPropertyName = "String2";
+            c.Name = "String2";
 
-            dtString2 = new DataTable("String2Options");
+            var dtString2 = new DataTable("String2Options");
             dtString2.Columns.Add("String2Long", typeof(string));
 
             dtString2.Rows.Add("apple");
@@ -154,20 +150,20 @@ namespace WindowsFormsApp4
             dtString2.Rows.Add("dilbert");
             dtString2.Rows.Add("ether");
 
-            dgv.Columns.Insert(1, dgvcbc2);
+            dgv.Columns.Insert(1, c);
 
-            dgvcbc2.DisplayMember = dtString2.Columns[0].ColumnName;
-            dgvcbc2.ValueMember = dtString2.Columns[0].ColumnName;
-            dgvcbc2.DataSource = dtString2;
+            c.DisplayMember = dtString2.Columns[0].ColumnName;
+            c.ValueMember = dtString2.Columns[0].ColumnName;
+            c.DataSource = dtString2;
 
-            dgvcbc2.FlatStyle = FlatStyle.Flat;
+            c.FlatStyle = FlatStyle.Flat;
 
             // create the third column:
-            DataGridViewComboBoxColumn dgvcbc3 = new DataGridViewComboBoxColumn();
-            dgvcbc3.DataPropertyName = "String3";
-            dgvcbc3.Name = "String3";
+            c = new DataGridViewComboBoxColumn();
+            c.DataPropertyName = "String3";
+            c.Name = "String3";
 
-            dtString3 = new DataTable("String3Options");
+            var dtString3 = new DataTable("String3Options");
             dtString3.Columns.Add("String3Long", typeof(string));
 
             dtString3.Rows.Add("apple");
@@ -176,13 +172,13 @@ namespace WindowsFormsApp4
             dtString3.Rows.Add("dilbert");
             dtString3.Rows.Add("ether");
 
-            dgv.Columns.Insert(2, dgvcbc3);
+            dgv.Columns.Insert(2, c);
 
-            dgvcbc3.DisplayMember = dtString3.Columns[0].ColumnName;
-            dgvcbc3.ValueMember = dtString3.Columns[0].ColumnName;
-            dgvcbc3.DataSource = dtString3;
+            c.DisplayMember = dtString3.Columns[0].ColumnName;
+            c.ValueMember = dtString3.Columns[0].ColumnName;
+            c.DataSource = dtString3;
 
-            dgvcbc3.FlatStyle = FlatStyle.Flat;
+            c.FlatStyle = FlatStyle.Flat;
         }
 
         public void SendKeyPlusTab(string keys)
