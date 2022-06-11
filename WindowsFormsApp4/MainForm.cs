@@ -150,27 +150,42 @@ namespace WindowsFormsApp4
             }
         }
 
+        SemaphoreSlim _criticalSection = new SemaphoreSlim(1, 1);
         public void SendKeyPlusTab(string keys)
         {
-            var nRowsB4 = dgv.Rows.Count;
-            if (!dgv.Focused)
+            if (_criticalSection.Wait(0))
             {
-                dgv.Focus();
-            }
-            bool first = true;
-            foreach (var key in keys)
-            {
-                SendKeys.SendWait($"{key}\t");
-                if(first)
+                try
                 {
-                    // Force new row - fixes an artifact of automated testing.
-                    first = false;
-                    dgv.CurrentCell.Value = CBEdit.Text;
+                    var nRowsB4 = dgv.Rows.Count;
+                    if (!dgv.Focused)
+                    {
+                        dgv.Focus();
+                    }
+                    bool first = true;
+                    foreach (var key in keys)
+                    {
+                        SendKeys.SendWait($"{key}\t");
+                        if (first)
+                        {
+                            // Force new row - fixes an artifact of automated testing.
+                            first = false;
+                            dgv.CurrentCell.Value = CBEdit.Text;
+                        }
+                    }
+                    if (dgv.Rows.Count == nRowsB4)
+                    {
+                        MessageBox.Show(msg);
+                    }
                 }
-            }
-            if (dgv.Rows.Count == nRowsB4)
-            {
-                MessageBox.Show(msg);
+                catch (Exception ex)
+                {
+                    Debug.Assert(false, ex.Message);
+                }
+                finally
+                {
+                    _criticalSection.Release();
+                }
             }
         }
         const string msg =
