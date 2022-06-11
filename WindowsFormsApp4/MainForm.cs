@@ -163,6 +163,7 @@ namespace WindowsFormsApp4
                 SendKeys.SendWait($"{key}\t");
                 if(first)
                 {
+                    // Force new row
                     first = false;
                     dgv.CurrentCell.Value = CBEdit.Text;
                 }
