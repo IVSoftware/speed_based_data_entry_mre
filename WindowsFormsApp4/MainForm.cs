@@ -109,9 +109,12 @@ namespace WindowsFormsApp4
         private void onCBEdit_GotFocus(object sender, EventArgs e)
         {
             Debug.WriteLine($"CBEdit got focus with text='{_cbEdit.Text}'");
-            if ((dgv.CurrentCell != null) && (_cbEdit != null))
+            if (btnWorkaround.Checked)
             {
-                dgv.CurrentCell.Value = _cbEdit.Text;
+                if ((dgv.CurrentCell != null) && (_cbEdit != null))
+                {
+                    dgv.CurrentCell.Value = _cbEdit.Text;
+                }
             }
         }
 

@@ -48,18 +48,17 @@
             // btnWorkaround
             // 
             this.btnWorkaround.Appearance = System.Windows.Forms.Appearance.Button;
-            this.btnWorkaround.Checked = true;
-            this.btnWorkaround.CheckState = System.Windows.Forms.CheckState.Checked;
             this.btnWorkaround.Location = new System.Drawing.Point(12, 403);
             this.btnWorkaround.Name = "btnWorkaround";
-            this.btnWorkaround.Size = new System.Drawing.Size(106, 40);
+            this.btnWorkaround.Size = new System.Drawing.Size(146, 40);
             this.btnWorkaround.TabIndex = 1;
             this.btnWorkaround.Text = "Workaround";
+            this.btnWorkaround.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnWorkaround.UseVisualStyleBackColor = true;
             // 
             // buttonABC
             // 
-            this.buttonABC.Location = new System.Drawing.Point(124, 403);
+            this.buttonABC.Location = new System.Drawing.Point(164, 403);
             this.buttonABC.Name = "buttonABC";
             this.buttonABC.Size = new System.Drawing.Size(75, 40);
             this.buttonABC.TabIndex = 2;
@@ -69,7 +68,7 @@
             // 
             // buttonCDE
             // 
-            this.buttonCDE.Location = new System.Drawing.Point(205, 403);
+            this.buttonCDE.Location = new System.Drawing.Point(245, 403);
             this.buttonCDE.Name = "buttonCDE";
             this.buttonCDE.Size = new System.Drawing.Size(75, 40);
             this.buttonCDE.TabIndex = 3;
