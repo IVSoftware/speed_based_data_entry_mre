@@ -23,6 +23,23 @@ namespace WindowsFormsApp4
             dgv.CurrentCellChanged += onCurrentCellChanged;
             dgv.CurrentCellDirtyStateChanged += onCurrentCellDirtyStateChanged;
         }
+        protected override void OnHandleCreated(EventArgs e)
+        {
+            base.OnHandleCreated(e);
+        }
+
+        public void SendKeyPlusTab(string keys)
+        {
+            dgv.Focus();
+            BeginInvoke((MethodInvoker)delegate 
+            {
+                foreach (var key in keys)
+                {
+                    SendKeys.SendWait(key.ToString());
+                    SendKeys.Flush();
+                }
+            });
+        }
 
         private void onCurrentCellDirtyStateChanged(object sender, EventArgs e)
         {

@@ -57,7 +57,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgv;
+        public System.Windows.Forms.DataGridView dgv;
     }
 }
 
