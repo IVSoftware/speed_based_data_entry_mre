@@ -44,10 +44,14 @@ namespace WindowsFormsApp4
         private void onCellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
             Debug.WriteLine(nameof(onCellBeginEdit));
+
+#if false
+            // ALSO SEEMS TO WORK IF PLACED HERE
             if((dgv.CurrentCell != null) && (_cbEdit != null))
             {
-                // dgv.CurrentCell.Value = _cbEdit.Text;
+                dgv.CurrentCell.Value = _cbEdit.Text;
             }
+#endif
         }
 
         private void onCellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -88,6 +92,10 @@ namespace WindowsFormsApp4
         private void onCBEdit_GotFocus(object sender, EventArgs e)
         {
             Debug.WriteLine($"CBEdit got focus with text='{_cbEdit.Text}'");
+            if ((dgv.CurrentCell != null) && (_cbEdit != null))
+            {
+                dgv.CurrentCell.Value = _cbEdit.Text;
+            }
         }
 
         private void onCBEdit_LostFocus(object sender, EventArgs e)
@@ -169,4 +177,49 @@ namespace WindowsFormsApp4
             dgvcbc3.FlatStyle = FlatStyle.Flat;
         }
     }
+
+#if false
+    // N O R M A L    T R A C E
+    onCurrentCellChanged [0, 0]
+    onCellBeginEdit
+    CBEdit got focus with text='apple'
+    onCurrentCellDirtyStateChanged True True
+    onCurrentCellDirtyStateChanged False True
+    CBEdit losing focus with text='apple'
+    onCellEndEdit
+    onCurrentCellChanged [1, 0]
+    onCellBeginEdit
+    CBEdit got focus with text='apple'
+    onCurrentCellDirtyStateChanged True True
+    onCurrentCellDirtyStateChanged False True
+    CBEdit losing focus with text='bob'
+    onCellEndEdit
+    onCurrentCellChanged [2, 0]
+    onCellBeginEdit
+    CBEdit got focus with text='apple'
+    onCurrentCellDirtyStateChanged True True
+    onCurrentCellDirtyStateChanged False True
+    CBEdit losing focus with text='clobber'
+    onCellEndEdit
+    onCurrentCellChanged [0, 1]
+
+    // P A T H O L O G I C A L    T R A C E
+    onCellBeginEdit
+    CBEdit got focus with text='apple'
+    onCurrentCellDirtyStateChanged True True
+    onCurrentCellDirtyStateChanged False True
+    CBEdit losing focus with text='apple'
+    onCellEndEdit
+    onCurrentCellChanged [1, 1]
+    onCellBeginEdit
+    CBEdit got focus with text='bob'
+    CBEdit losing focus with text='bob'
+    onCellEndEdit
+    onCurrentCellChanged [2, 1]
+    onCellBeginEdit
+    CBEdit got focus with text='clobber'
+    CBEdit losing focus with text='clobber'
+    onCellEndEdit
+    onCurrentCellChanged [0, 2]
+#endif
 }
