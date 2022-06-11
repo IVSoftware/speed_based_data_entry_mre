@@ -157,9 +157,15 @@ namespace WindowsFormsApp4
             {
                 dgv.Focus();
             }
+            bool first = true;
             foreach (var key in keys)
             {
                 SendKeys.SendWait($"{key}\t");
+                if(first)
+                {
+                    first = false;
+                    dgv.CurrentCell.Value = CBEdit.Text;
+                }
             }
             if (dgv.Rows.Count == nRowsB4)
             {
