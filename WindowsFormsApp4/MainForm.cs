@@ -168,6 +168,11 @@ namespace WindowsFormsApp4
                         SendKeys.SendWait($"{key}\t");
                         if (first)
                         {
+                            // Using SendKeys acts slightly different internally from
+                            // pressing and releasing physical keys. If the button
+                            // clicks are too fast, a new row might not create the way
+                            // it should. This line ensures the call value changes.
+                            // =======================================================
                             // Force new row - fixes an artifact of automated testing.
                             first = false;
                             dgv.CurrentCell.Value = CBEdit.Text;
