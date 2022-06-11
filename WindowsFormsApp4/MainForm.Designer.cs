@@ -100,6 +100,7 @@
             this.Controls.Add(this.btnWorkaround);
             this.Controls.Add(this.dgv);
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main Form";
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);

@@ -187,6 +187,7 @@ namespace WindowsFormsApp4
 
         public void SendKeyPlusTab(string keys)
         {
+            var nRowsB4 = dgv.Rows.Count;
             if (!dgv.Focused)
             {
                 dgv.Focus();
@@ -196,7 +197,20 @@ namespace WindowsFormsApp4
             {
                 SendKeys.SendWait($"{key}\t");
             }
+            if(dgv.Rows.Count == nRowsB4)
+            {
+                MessageBox.Show(msg);
+            }
         }
+        const string msg =
+@"New bug detected!
+
+The DGV should make a row as soon as a cell 
+goes into edit mode. This only seems to
+occur when repeating the same button.
+        
+Alternating the ABC and CDE buttons seems
+to work always.";
 
         private void buttonABC_Click(object sender, EventArgs e)
         {
