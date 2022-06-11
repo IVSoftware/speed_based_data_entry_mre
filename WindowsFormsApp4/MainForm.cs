@@ -194,7 +194,7 @@ namespace WindowsFormsApp4
             }
             foreach (var key in keys)
             {
-                SendKeys.SendWait($"{ key}\t");
+                SendKeys.SendWait($"{key}\t");
             }
         }
 
@@ -205,8 +205,12 @@ namespace WindowsFormsApp4
 
         private void buttonCDE_Click(object sender, EventArgs e)
         {
-            buttonCDE.Enabled = false;
             SendKeyPlusTab("cde");
+        }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            dgv.Rows.Clear();
         }
     }
 

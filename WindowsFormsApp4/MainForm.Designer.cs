@@ -32,6 +32,7 @@
             this.btnWorkaround = new System.Windows.Forms.CheckBox();
             this.buttonABC = new System.Windows.Forms.Button();
             this.buttonCDE = new System.Windows.Forms.Button();
+            this.buttonClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,11 +79,22 @@
             this.buttonCDE.UseVisualStyleBackColor = true;
             this.buttonCDE.Click += new System.EventHandler(this.buttonCDE_Click);
             // 
+            // buttonClear
+            // 
+            this.buttonClear.Location = new System.Drawing.Point(670, 403);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(118, 40);
+            this.buttonClear.TabIndex = 4;
+            this.buttonClear.Text = "Clear";
+            this.buttonClear.UseVisualStyleBackColor = true;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.buttonCDE);
             this.Controls.Add(this.buttonABC);
             this.Controls.Add(this.btnWorkaround);
@@ -100,6 +112,7 @@
         private System.Windows.Forms.CheckBox btnWorkaround;
         private System.Windows.Forms.Button buttonABC;
         private System.Windows.Forms.Button buttonCDE;
+        private System.Windows.Forms.Button buttonClear;
     }
 }
 
