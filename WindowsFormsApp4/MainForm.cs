@@ -226,6 +226,18 @@ to work always.";
         {
             dgv.Rows.Clear();
         }
+
+        private void btnWorkaround_CheckedChanged(object sender, EventArgs e)
+        {
+            if(btnWorkaround.Checked)
+            {
+                btnWorkaround.Text = "Workaround is ON";
+            }
+            else
+            {
+                btnWorkaround.Text = "Workaround is OFF";
+            }
+        }
     }
 
 #if false
