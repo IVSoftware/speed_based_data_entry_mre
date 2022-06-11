@@ -53,6 +53,7 @@
             this.btnWorkaround.Name = "btnWorkaround";
             this.btnWorkaround.Size = new System.Drawing.Size(207, 40);
             this.btnWorkaround.TabIndex = 1;
+            this.btnWorkaround.TabStop = false;
             this.btnWorkaround.Text = "Workaround is OFF";
             this.btnWorkaround.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnWorkaround.UseVisualStyleBackColor = true;
@@ -64,6 +65,7 @@
             this.buttonABC.Name = "buttonABC";
             this.buttonABC.Size = new System.Drawing.Size(75, 40);
             this.buttonABC.TabIndex = 2;
+            this.buttonABC.TabStop = false;
             this.buttonABC.Text = "ABC";
             this.buttonABC.UseVisualStyleBackColor = true;
             this.buttonABC.Click += new System.EventHandler(this.buttonABC_Click);
@@ -74,6 +76,7 @@
             this.buttonCDE.Name = "buttonCDE";
             this.buttonCDE.Size = new System.Drawing.Size(75, 40);
             this.buttonCDE.TabIndex = 3;
+            this.buttonCDE.TabStop = false;
             this.buttonCDE.Text = "CDE";
             this.buttonCDE.UseVisualStyleBackColor = true;
             this.buttonCDE.Click += new System.EventHandler(this.buttonCDE_Click);
@@ -84,6 +87,7 @@
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(118, 40);
             this.buttonClear.TabIndex = 4;
+            this.buttonClear.TabStop = false;
             this.buttonClear.Text = "Clear";
             this.buttonClear.UseVisualStyleBackColor = true;
             this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);

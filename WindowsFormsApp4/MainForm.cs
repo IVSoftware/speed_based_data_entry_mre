@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -155,13 +156,12 @@ namespace WindowsFormsApp4
             if (!dgv.Focused)
             {
                 dgv.Focus();
-                Task.Delay(100).Wait();
             }
             foreach (var key in keys)
             {
                 SendKeys.SendWait($"{key}\t");
             }
-            if(dgv.Rows.Count == nRowsB4)
+            if (dgv.Rows.Count == nRowsB4)
             {
                 MessageBox.Show(msg);
             }
