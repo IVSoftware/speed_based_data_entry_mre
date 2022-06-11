@@ -206,7 +206,7 @@ namespace WindowsFormsApp4
         private void buttonCDE_Click(object sender, EventArgs e)
         {
             buttonCDE.Enabled = false;
-            SendKeyPlusTab("def");
+            SendKeyPlusTab("cde");
         }
     }
 
