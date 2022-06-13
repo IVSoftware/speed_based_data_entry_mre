@@ -308,7 +308,7 @@ to work always.";
     }
 
 #if false
-    // N O R M A L    T R A C E
+    // NORMAL (slow)
     onCurrentCellChanged [0, 0]
     onCellBeginEdit
     CBEdit got focus with text='apple'
@@ -332,7 +332,7 @@ to work always.";
     onCellEndEdit
     onCurrentCellChanged [0, 1]
 
-    // P A T H O L O G I C A L    T R A C E
+    // PATHOLOGICAL (fast)
     onCellBeginEdit
     CBEdit got focus with text='apple'
     onCurrentCellDirtyStateChanged True True
